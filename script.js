@@ -15,46 +15,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 2. Mobile Hamburger Menu ---
+    // --- Mobile Hamburger Menu Logic ---
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
-    
+
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', () => {
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
-            } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100px'; // Header height
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.backgroundColor = '#0a0a0a';
-                navLinks.style.padding = '2rem';
-            }
+            navLinks.classList.toggle('active');
         });
 
-        // Close menu automatically on link click
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 900) {
-                    navLinks.style.display = 'none';
-                }
-            });
+        // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
         });
-
-        // Handle window resizing safely
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 900) {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'row';
-                navLinks.style.position = 'static';
-                navLinks.style.padding = '0';
-                navLinks.style.backgroundColor = 'transparent';
-            } else {
-                navLinks.style.display = 'none';
-            }
-        });
+    });
     }
 
     // --- 3. Portfolio Gallery Filtering ---
