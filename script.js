@@ -1,105 +1,77 @@
-/**
- * Keerthu Makeup - JavaScript Logic
- * Follows strict specifications for data rendering, filtering, and animations.
- */
-
-// --- 1. Data Arrays (Highly Reliable Unsplash Image Links) ---
+// --- Highly Reliable Image Data ---
 const portfolioData = [
     {
         id: 1,
-        title: 'Traditional Elegance',
-        category: 'bridal',
-        image: 'https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?auto=format&fit=crop&q=80&w=800',
-        description: 'Classic bridal radiance with flawless skin.'
+        title: 'EDITORIAL MATTE',
+        category: 'editorial',
+        // YOUR CUSTOM GENERATED IMAGE
+        image: 'http://googleusercontent.com/image_generation_content/0',
+        description: 'High-fashion precision.'
     },
     {
         id: 2,
-        title: 'High Fashion Matte',
-        category: 'editorial',
-        image: 'https://images.unsplash.com/photo-1542452255191-c85a98f2c5d1?auto=format&fit=crop&q=80&w=800',
-        description: 'Avant-garde styling for studio lighting.'
+        title: 'BRIDAL RADIANCE',
+        category: 'bridal',
+        // Stable Unsplash Indian Bridal Link
+        image: 'https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?auto=format&fit=crop&q=80&w=800',
+        description: 'Timeless cultural elegance.'
     },
     {
         id: 3,
-        title: 'Evening Glamour',
+        title: 'EVENING GLAM',
         category: 'party',
-        image: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&q=80&w=800',
-        description: 'Sophisticated contour and dramatic eyes.'
+        // Stable High-End Glamour Link
+        image: 'https://images.unsplash.com/photo-1512303452027-750531d7cb7f?auto=format&fit=crop&q=80&w=800',
+        description: 'Command the room.'
     },
     {
         id: 4,
-        title: 'Soft Glow',
-        category: 'everyday_glam',
-        image: 'https://images.unsplash.com/photo-1512303452027-750531d7cb7f?auto=format&fit=crop&q=80&w=800',
-        description: 'Enhancing natural beauty seamlessly.'
+        title: 'STUDIO GLOW',
+        category: 'editorial',
+        // Stable Editorial Portrait
+        image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=800',
+        description: 'Flawless camera-ready skin.'
     },
     {
         id: 5,
-        title: 'Modern Bride',
+        title: 'TRADITIONAL',
         category: 'bridal',
+        // Stable Traditional Look
         image: 'https://images.unsplash.com/photo-1583391733958-6752478ebf9f?auto=format&fit=crop&q=80&w=800',
-        description: 'Contemporary bridal styling.'
+        description: 'Classic perfection.'
     },
     {
         id: 6,
-        title: 'Event Ready',
+        title: 'RECEPTION LUXE',
         category: 'party',
-        image: 'https://images.unsplash.com/photo-1529154261765-b1a9cc9e7ec7?auto=format&fit=crop&q=80&w=800',
-        description: 'Flawless base for all-night wear.'
+        // Stable Evening Look
+        image: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&q=80&w=800',
+        description: 'Sleek and sophisticated.'
     }
 ];
 
-const testimonialsData = [
-    {
-        id: 1,
-        name: 'Priya Sharma',
-        quote: 'Keerthu made me feel like an absolute queen on my wedding day. The makeup didn’t budge despite all the crying!',
-        rating: 5,
-        service: 'Bridal Makeup'
-    },
-    {
-        id: 2,
-        name: 'Ananya Desai',
-        quote: 'Her understanding of skin tones and high-end products gave me the most luxurious, flawless finish for my reception.',
-        rating: 5,
-        service: 'Party Glamour'
-    },
-    {
-        id: 3,
-        name: 'Meera Reddy',
-        quote: 'Professional, punctual, and incredibly talented. The everyday glam look was perfect for my pre-wedding shoot.',
-        rating: 5,
-        service: 'Everyday Glam'
-    }
-];
-
-// --- 2. DOM Elements & Initialization ---
+// --- Render Portfolio & Filtering ---
 document.addEventListener('DOMContentLoaded', () => {
     renderPortfolio('all');
-    renderTestimonials();
     initScrollAnimations();
-    initCounters();
 });
 
-// --- 3. Render Portfolio & Filtering ---
 const portfolioGrid = document.getElementById('portfolio-grid');
 const filterBtns = document.querySelectorAll('.filter-btn');
 
 function renderPortfolio(filterCategory) {
-    portfolioGrid.innerHTML = ''; // Clear current grid
+    portfolioGrid.innerHTML = ''; 
     
     const filteredData = filterCategory === 'all' 
         ? portfolioData 
         : portfolioData.filter(item => item.category === filterCategory);
 
-    filteredData.forEach((item, index) => {
-        const delay = (index % 3) * 0.1; // Stagger effect
+    filteredData.forEach((item) => {
         const html = `
-            <div class="portfolio-item show" style="transition-delay: ${delay}s">
+            <div class="portfolio-item animate-up in-view">
                 <img src="${item.image}" alt="${item.title}" loading="lazy">
                 <div class="portfolio-overlay">
                     <h3>${item.title}</h3>
-                    <p>${item.description}</p>
                 </div>
             </div>
         `;
@@ -109,128 +81,50 @@ function renderPortfolio(filterCategory) {
 
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Remove active class from all
         filterBtns.forEach(b => b.classList.remove('active'));
-        // Add active to clicked
         btn.classList.add('active');
-        // Render based on data-filter attribute
         renderPortfolio(btn.getAttribute('data-filter'));
     });
 });
 
-// --- 4. Render Testimonials ---
-function renderTestimonials() {
-    const testimonialsGrid = document.getElementById('testimonials-grid');
-    testimonialsData.forEach((item, index) => {
-        const delay = index + 1; // Used for animation class mapping
-        const stars = '★'.repeat(item.rating);
-        const html = `
-            <div class="testimonial-card animate-up delay-${delay}">
-                <div class="stars">${stars}</div>
-                <p class="quote">"${item.quote}"</p>
-                <span class="client-name">${item.name}</span>
-                <span class="client-service">${item.service}</span>
-            </div>
-        `;
-        testimonialsGrid.insertAdjacentHTML('beforeend', html);
-    });
-}
-
-// --- 5. Scroll Animations (Intersection Observer) ---
+// --- Scroll Animations ---
 function initScrollAnimations() {
     const navbar = document.getElementById('navbar');
-    const heroBg = document.querySelector('.hero-bg');
     
-    // Sticky Nav & Parallax Hero
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-        
-        // Subtle Parallax
-        if(heroBg) {
-            heroBg.style.transform = `scale(1.05) translateY(${window.scrollY * 0.3}px)`;
-        }
     });
-
-    // Observer for staggered entrance animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('in-view');
-                // Optional: Stop observing once animated
-                // observer.unobserve(entry.target); 
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.animate-up, .scale-in').forEach(el => {
+    document.querySelectorAll('.animate-up').forEach(el => {
         observer.observe(el);
     });
 }
 
-// --- 6. Number Counter Animation ---
-function initCounters() {
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200; // The lower the slower
-
-    const counterObserver = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const counter = entry.target;
-                const updateCount = () => {
-                    const target = +counter.getAttribute('data-target');
-                    const count = +counter.innerText;
-                    const inc = target / speed;
-
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 15);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-                updateCount();
-                obs.unobserve(counter); // Only run once
-            }
-        });
-    }, { threshold: 0.5 });
-
-    counters.forEach(counter => counterObserver.observe(counter));
-}
-
-// --- 7. WhatsApp Booking Flow ---
-const bookingForm = document.getElementById('booking-form');
-
-bookingForm.addEventListener('submit', function(e) {
+// --- WhatsApp Booking ---
+document.getElementById('booking-form').addEventListener('submit', function(e) {
     e.preventDefault(); 
     
     const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
     const date = document.getElementById('date').value;
     const service = document.getElementById('service').value;
     const message = document.getElementById('message').value;
 
-    // Format Date for readability
-    const formattedDate = new Date(date).toLocaleDateString('en-US', {
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-    });
-
-    const whatsappMessage = `✨ *New Appointment Request: Keerthu Makeup* ✨\n\n*Client Details:*\nName: ${name}\nPhone: ${phone}\n\n*Booking Details:*\nDate: ${formattedDate}\nService: ${service}\nAdditional Info: ${message ? message : 'N/A'}\n\nHello Keerthu, I would love to confirm my booking with you!`;
+    const whatsappMessage = `*LUXURY APPOINTMENT REQUEST*\n\n*Name:* ${name}\n*Date:* ${date}\n*Service:* ${service}\n*Notes:* ${message ? message : 'N/A'}\n\nHello, I would like to inquire about availability.`;
     
     const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappNumber = '919876543210'; // Replace with actual number
     
-    // UPDATE THIS NUMBER (Use Country Code, no plus sign)
-    const whatsappNumber = '919876543210'; 
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    
-    // Open in new tab
-    window.open(whatsappURL, '_blank');
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
 });
