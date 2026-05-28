@@ -40,7 +40,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; text-transf
 .brand-name-second { color: var(--gold-metallic); }
 .brand-sub { font-family: var(--font-body); font-size: 0.65rem; letter-spacing: 6px; text-transform: uppercase; color: var(--white); }
 
-.nav-links { list-style: none; display: flex; gap: 3rem; }
+.nav-links { list-style: none; display: flex; gap: 3rem; align-items: center; }
 .nav-links a { 
     text-decoration: none; color: var(--off-white-text); font-weight: 400; 
     text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; 
@@ -53,9 +53,13 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; text-transf
 .nav-links a:hover { color: var(--gold-metallic); }
 .nav-links a:hover::after { width: 100%; }
 
-/* --- Scroll Animations --- */
-.reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
+/* --- Bulletproof Scroll Animations --- */
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
+/* Fail-safe: If JS breaks, CSS will force visibility after 1 second */
+@keyframes failsafeReveal { to { opacity: 1; transform: translateY(0); } }
+.reveal { animation: failsafeReveal 0.1s ease forwards 1s; } 
+.reveal.active { animation: none; opacity: 1; transform: translateY(0); }
 
 /* --- Parallax Hero Section --- */
 .hero { 
@@ -63,13 +67,13 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; text-transf
     background: linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.6)), url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=1920') center/cover fixed; 
     display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; 
 }
-.hero-content h2 { font-size: 4.5rem; color: var(--white); margin-bottom: 1rem; letter-spacing: 3px; animation: fadeInDown 1.5s ease; }
-.hero-content p { font-size: 1rem; color: var(--white); margin-bottom: 2.5rem; letter-spacing: 3px; text-transform: uppercase; animation: fadeInUp 1.5s ease 0.5s backwards; }
+.hero-content h2 { font-size: 4.5rem; color: var(--white); margin-bottom: 1rem; letter-spacing: 3px; }
+.hero-content p { font-size: 1rem; color: var(--white); margin-bottom: 2.5rem; letter-spacing: 3px; text-transform: uppercase; }
 
 .btn-primary { 
     display: inline-block; padding: 16px 40px; background-color: transparent; color: var(--white); 
     text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; border: 1px solid var(--white); 
-    cursor: pointer; transition: var(--transition-smooth); animation: fadeInUp 1.5s ease 1s backwards;
+    cursor: pointer; transition: var(--transition-smooth);
 }
 .btn-primary:hover { background-color: var(--white); color: var(--bg-darkest); }
 
@@ -160,13 +164,14 @@ footer { background-color: var(--bg-darkest); color: var(--off-white-text); padd
 
 .footer-bottom { border-top: 1px solid rgba(184, 151, 90, 0.1); padding-top: 2rem; text-align: center; color: var(--gray); font-size: 0.8rem; max-width: 1300px; margin: 0 auto; }
 
-/* --- Keyframes & Mobile --- */
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+/* --- Hamburger Menu (Mobile) --- */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { width: 30px; height: 3px; background-color: var(--white); transition: var(--transition-smooth); }
 
 @media (max-width: 900px) {
-    .hero-content h2 { font-size: 2.8rem; }
+    .hamburger { display: flex; }
     .nav-links { display: none; }
+    .hero-content h2 { font-size: 2.8rem; }
     .about-grid { grid-template-columns: 1fr; }
     .form-and-map-container { grid-template-columns: 1fr; padding: 2.5rem; }
     .footer-grid { grid-template-columns: 1fr; }
