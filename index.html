@@ -3,53 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keerthu Makeup | The Luxury Artistry</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Keerthu Makeup | Premium Luxury Artistry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo">KEERTHU <span>MAKEUP</span></a>
+            <a href="#home" class="logo">KEERTHU<span>MAKEUP</span></a>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#book">Book</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#book" class="btn-nav ripple">Book Now</a></li>
             </ul>
         </div>
     </nav>
 
     <header id="home" class="hero">
-        <div class="hero-bg"></div>
+        <div class="hero-bg parallax"></div>
         <div class="hero-content">
-            <p class="hero-subtitle animate-up delay-1">THE SIGNATURE COLLECTION</p>
-            <h1 class="animate-up delay-2">LUXURY EDITION</h1>
-            <p class="hero-description animate-up delay-3">Flawless, high-end artistry tailored for your most exclusive events and timeless moments.</p>
-            <a href="#book" class="btn-primary animate-up delay-4">Discover More</a>
+            <p class="subtitle animate-up delay-1">THE SIGNATURE COLLECTION</p>
+            <h1 class="animate-up delay-2">LIMITED EDITION<br>BEAUTY</h1>
+            <p class="description animate-up delay-3">Flawless, high-end artistry tailored for your most exclusive events. Experience luxury that leaves a lasting impression.</p>
+            <a href="#book" class="btn-primary animate-up delay-4 ripple">Reserve Your Appointment</a>
         </div>
     </header>
 
     <section id="services" class="section dark-bg">
         <div class="container">
             <div class="section-header animate-up">
-                <h2>SERVICES</h2>
+                <h2>Bespoke Services</h2>
                 <div class="gold-line"></div>
+                <p>Tailored perfection for your special moments</p>
             </div>
             
             <div class="services-grid">
                 <div class="service-card animate-up delay-1">
-                    <h3>BRIDAL ARTISTRY</h3>
-                    <p>Meticulously crafted, long-lasting elegance for your most important day.</p>
+                    <div class="icon">✧</div>
+                    <h3>Bridal Artistry</h3>
+                    <p>Meticulously crafted, tear-proof, and glowing traditional or modern bridal looks.</p>
                 </div>
                 <div class="service-card animate-up delay-2">
-                    <h3>EDITORIAL MATTE</h3>
-                    <p>High-contrast, flawless finishes designed for studio lighting and high-fashion photography.</p>
+                    <div class="icon">✦</div>
+                    <h3>Party Glamour</h3>
+                    <p>Command the room with sophisticated, high-definition makeup for evening events.</p>
                 </div>
                 <div class="service-card animate-up delay-3">
-                    <h3>EVENING GLAMOUR</h3>
-                    <p>Sophisticated, commanding looks tailored for galas, receptions, and exclusive events.</p>
+                    <div class="icon">✧</div>
+                    <h3>Editorial Matte</h3>
+                    <p>High-contrast, flawless finishes designed for studio lighting and photography.</p>
+                </div>
+                <div class="service-card animate-up delay-1">
+                    <div class="icon">✦</div>
+                    <h3>Special Occasions</h3>
+                    <p>Soft, romantic, and elegant looks perfect for engagements and anniversaries.</p>
+                </div>
+                <div class="service-card animate-up delay-2">
+                    <div class="icon">✧</div>
+                    <h3>HD Airbrush</h3>
+                    <p>Lightweight, seamless, and waterproof porcelain-like finish for all-day wear.</p>
+                </div>
+                <div class="service-card animate-up delay-3">
+                    <div class="icon">✦</div>
+                    <h3>Styling & Draping</h3>
+                    <p>Intricate luxury hairstyling and flawless saree pleating to complete your look.</p>
                 </div>
             </div>
         </div>
@@ -58,15 +82,17 @@
     <section id="portfolio" class="section darkest-bg">
         <div class="container">
             <div class="section-header animate-up">
-                <h2>PORTFOLIO</h2>
+                <h2>The Portfolio</h2>
                 <div class="gold-line"></div>
+                <p>A curated collection of our finest work</p>
             </div>
             
             <div class="portfolio-filter animate-up delay-1">
-                <button class="filter-btn active" data-filter="all">ALL</button>
-                <button class="filter-btn" data-filter="bridal">BRIDAL</button>
-                <button class="filter-btn" data-filter="party">GLAMOUR</button>
-                <button class="filter-btn" data-filter="editorial">EDITORIAL</button>
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="bridal">Bridal</button>
+                <button class="filter-btn" data-filter="party">Party</button>
+                <button class="filter-btn" data-filter="editorial">Editorial</button>
+                <button class="filter-btn" data-filter="everyday_glam">Everyday Glam</button>
             </div>
             
             <div class="portfolio-grid" id="portfolio-grid">
@@ -74,45 +100,119 @@
         </div>
     </section>
 
+    <section id="testimonials" class="section dark-bg">
+        <div class="container">
+            <div class="section-header animate-up">
+                <h2>Client Love</h2>
+                <div class="gold-line"></div>
+                <p>Words from our exclusive clientele</p>
+            </div>
+            
+            <div class="testimonials-grid" id="testimonials-grid">
+                </div>
+        </div>
+    </section>
+
+    <section id="about" class="section darkest-bg">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image animate-up delay-1">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=800" alt="Keerthu Makeup Artist">
+                    <div class="experience-badge">
+                        <span class="counter" data-target="5">0</span><span class="plus">+</span>
+                        <p>Years of Excellence</p>
+                    </div>
+                </div>
+                <div class="about-content animate-up delay-2">
+                    <h2>Meet Keerthu</h2>
+                    <div class="gold-line" style="margin: 1rem 0 2rem 0;"></div>
+                    <p>With a sophisticated approach to beauty, Keerthu specializes in creating looks that are both timeless and breathtaking. She believes that true luxury lies in the details, meticulously curating premium products and techniques to suit your unique features.</p>
+                    <p>Her signature style blends high-fashion editorial perfection with the glowing, long-lasting requirements of modern glamour. The result is a flawless, elegant finish that ensures you feel as exquisite as you look.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <h3 class="counter" data-target="500">0</h3>
+                            <p>Exclusive Brides</p>
+                        </div>
+                        <div class="stat">
+                            <h3 class="counter" data-target="150">0</h3>
+                            <p>Editorial Shoots</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="book" class="section dark-bg">
         <div class="container">
             <div class="section-header animate-up">
-                <h2>RESERVE</h2>
+                <h2>Reserve Your Date</h2>
                 <div class="gold-line"></div>
+                <p>Connect directly via WhatsApp to secure your appointment</p>
             </div>
             
             <div class="form-container animate-up delay-1">
                 <form id="booking-form">
                     <div class="form-group">
-                        <input type="text" id="name" required placeholder="Full Name">
+                        <input type="text" id="name" required placeholder=" ">
+                        <label for="name">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" required placeholder=" ">
+                        <label for="phone">Phone Number</label>
                     </div>
                     <div class="form-group">
                         <input type="date" id="date" required>
+                        <label for="date" class="active">Preferred Date</label>
                     </div>
-                    <div class="form-group full-width">
+                    <div class="form-group">
                         <select id="service" required>
-                            <option value="" disabled selected>Select an Exclusive Service</option>
+                            <option value="" disabled selected></option>
                             <option value="Bridal Artistry">Bridal Artistry</option>
+                            <option value="Party Glamour">Party Glamour</option>
                             <option value="Editorial Matte">Editorial Matte</option>
-                            <option value="Evening Glamour">Evening Glamour</option>
+                            <option value="Everyday Glam">Everyday Glam</option>
                         </select>
+                        <label for="service" class="active">Service Type</label>
                     </div>
                     <div class="form-group full-width">
-                        <textarea id="message" rows="3" placeholder="Additional Details (Venue, Style preferences)"></textarea>
+                        <textarea id="message" rows="3" placeholder=" "></textarea>
+                        <label for="message">Additional Details (Venue, Theme, etc.)</label>
                     </div>
-                    <button type="submit" class="btn-primary full-width">REQUEST APPOINTMENT</button>
+                    <button type="submit" class="btn-primary full-width ripple">Confirm & Send to WhatsApp</button>
                 </form>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container footer-content">
-            <a href="#home" class="logo">KEERTHU <span>MAKEUP</span></a>
-            <div class="social-links">
-                <a href="#">INSTAGRAM</a>
-                <a href="#">FACEBOOK</a>
+        <div class="container footer-grid animate-up">
+            <div class="footer-brand">
+                <a href="#home" class="logo">KEERTHU<span>MAKEUP</span></a>
+                <p>Bringing high-end, flawless artistry to your most cherished moments. Based in Bengaluru, available worldwide.</p>
             </div>
+            <div class="footer-links-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>Bengaluru, Karnataka, India</p>
+                <p>+91 98765 43210</p>
+                <div class="social-links">
+                    <a href="#" target="_blank">IG</a>
+                    <a href="#" target="_blank">FB</a>
+                    <a href="#" target="_blank">PT</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
             <p>&copy; 2026 Keerthu Makeup. All Rights Reserved.</p>
         </div>
     </footer>
