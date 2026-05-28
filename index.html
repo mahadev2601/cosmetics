@@ -77,7 +77,7 @@
         /* --- Parallax Hero Section --- */
         .hero { 
             height: calc(100vh - var(--header-height)); 
-            background: linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.7)), url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=1920') center/cover fixed; 
+            background: linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.7)), url('https://images.pexels.com/photos/20805393/pexels-photo-20805393.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover fixed; 
             display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; 
         }
         .hero-content h2 { font-size: 4.5rem; color: var(--white); margin-bottom: 1rem; letter-spacing: 3px; }
@@ -104,9 +104,10 @@
         .service-card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--white); letter-spacing: 1px; }
         .service-card p { font-size: 0.9rem; color: var(--off-white-text); line-height: 1.8; }
 
-        /* --- PORTFOLIO --- */
+        /* --- NEW PORTFOLIO STYLE (Matches Reference Image) --- */
         .portfolio-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 4rem; }
         
+        /* Pill-shaped buttons */
         .tab-btn { 
             background: transparent; border: 1px solid var(--gold-metallic); border-radius: 30px; 
             font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; 
@@ -117,18 +118,20 @@
         
         .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
         
+        /* Rounded Image Cards with Reliable Image Sources */
         .portfolio-item { 
             position: relative; overflow: hidden; aspect-ratio: 3/4; 
             border-radius: 16px; 
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             transition: var(--transition-smooth); 
+            background-color: #1c1c1c; /* Placeholder color while loading */
         }
         .portfolio-item img { 
             width: 100%; height: 100%; object-fit: cover; 
             transition: transform 0.6s ease; 
         }
         .portfolio-overlay { 
-            position: absolute; inset: 0; background: rgba(10, 10, 10, 0.6); 
+            position: absolute; inset: 0; background: rgba(10, 10, 10, 0.7); 
             display: flex; flex-direction: column; align-items: center; justify-content: center; 
             opacity: 0; transition: var(--transition-smooth); 
             border-radius: 16px;
@@ -292,73 +295,80 @@
         <div class="portfolio-tabs">
             <button class="tab-btn active" data-filter="all">All</button>
             <button class="tab-btn" data-filter="bridal">Bridal</button>
-            <button class="tab-btn" data-filter="party">Party</button>
             <button class="tab-btn" data-filter="editorial">Editorial</button>
+            <button class="tab-btn" data-filter="party">Party Glam</button>
             <button class="tab-btn" data-filter="everyday_glam">Everyday Glam</button>
         </div>
         
         <div class="portfolio-grid">
             <div class="portfolio-item bridal">
-                <img src="https://images.unsplash.com/photo-1583391733958-6752478ebf9f?auto=format&fit=crop&q=80&w=600" alt="Traditional Hindu Bridal">
+                <img src="https://images.pexels.com/photos/14444458/pexels-photo-14444458.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Traditional Hindu Bridal Makeup">
                 <div class="portfolio-overlay">
                     <span>Traditional Hindu</span>
                     <p>Bridal</p>
                 </div>
             </div>
             <div class="portfolio-item bridal">
-                <img src="https://images.unsplash.com/photo-1605050825077-289f61b0ab97?auto=format&fit=crop&q=80&w=600" alt="Royal Muslim Bridal">
+                <img src="https://images.pexels.com/photos/11059530/pexels-photo-11059530.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Royal Muslim Bridal Makeup">
                 <div class="portfolio-overlay">
-                    <span>Royal Nikaah</span>
+                    <span>Royal Muslim</span>
                     <p>Bridal</p>
                 </div>
             </div>
             <div class="portfolio-item bridal">
-                <img src="https://images.unsplash.com/photo-1595777116834-8dd5691079d8?auto=format&fit=crop&q=80&w=600" alt="Classic Christian Bridal">
+                <img src="https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Classic Christian Bridal Makeup">
                 <div class="portfolio-overlay">
-                    <span>Classic White</span>
+                    <span>Classic Christian</span>
                     <p>Bridal</p>
                 </div>
             </div>
 
             <div class="portfolio-item editorial">
-                <img src="https://images.unsplash.com/photo-1542452255191-c85a98f2c5d1?auto=format&fit=crop&q=80&w=600" alt="Editorial Cover 1">
-                <div class="portfolio-overlay">
-                    <span>High Fashion</span>
-                    <p>Editorial</p>
-                </div>
-            </div>
-            <div class="portfolio-item editorial">
-                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=600" alt="Editorial Cover 2">
+                <img src="https://images.pexels.com/photos/2836486/pexels-photo-2836486.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Editorial Fashion Cover">
                 <div class="portfolio-overlay">
                     <span>Magazine Cover</span>
                     <p>Editorial</p>
                 </div>
             </div>
+            <div class="portfolio-item editorial">
+                <img src="https://images.pexels.com/photos/247322/pexels-photo-247322.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Editorial Creative Beauty">
+                <div class="portfolio-overlay">
+                    <span>Creative Beauty</span>
+                    <p>Editorial</p>
+                </div>
+            </div>
+            <div class="portfolio-item editorial">
+                <img src="https://images.pexels.com/photos/1758144/pexels-photo-1758144.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Book Cover Editorial">
+                <div class="portfolio-overlay">
+                    <span>Book Cover Glam</span>
+                    <p>Editorial</p>
+                </div>
+            </div>
 
             <div class="portfolio-item party">
-                <img src="https://images.unsplash.com/photo-1512303452027-750531d7cb7f?auto=format&fit=crop&q=80&w=600" alt="Party Glam 1">
+                <img src="https://images.pexels.com/photos/1375849/pexels-photo-1375849.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Evening Glamour">
                 <div class="portfolio-overlay">
-                    <span>Evening Glam</span>
-                    <p>Party</p>
+                    <span>Evening Radiance</span>
+                    <p>Party Glam</p>
                 </div>
             </div>
             <div class="portfolio-item party">
-                <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&q=80&w=600" alt="Party Glam 2">
+                <img src="https://images.pexels.com/photos/2108706/pexels-photo-2108706.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Reception Glamour">
                 <div class="portfolio-overlay">
-                    <span>Reception Glam</span>
-                    <p>Party</p>
+                    <span>Reception Look</span>
+                    <p>Party Glam</p>
                 </div>
             </div>
 
             <div class="portfolio-item everyday_glam">
-                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=600" alt="Everyday Glam 1">
+                <img src="https://images.pexels.com/photos/1903264/pexels-photo-1903264.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Soft Flawless Base">
                 <div class="portfolio-overlay">
                     <span>Flawless Base</span>
                     <p>Everyday Glam</p>
                 </div>
             </div>
             <div class="portfolio-item everyday_glam">
-                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80&w=600" alt="Everyday Glam 2">
+                <img src="https://images.pexels.com/photos/2681751/pexels-photo-2681751.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Soft Everyday Beauty">
                 <div class="portfolio-overlay">
                     <span>Soft Beauty</span>
                     <p>Everyday Glam</p>
@@ -370,7 +380,7 @@
     <section id="about" class="section bg-light reveal">
         <div class="about-grid">
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=800" alt="Keerthu Makeup Artist">
+                <img src="https://images.pexels.com/photos/20805367/pexels-photo-20805367.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Keerthu Makeup Artist Work">
             </div>
             <div class="about-text">
                 <h2 class="section-title" style="text-align: left;">The Artist Behind The Brush</h2>
@@ -391,7 +401,7 @@
                 <div class="stars">★★★★★</div>
                 <p class="quote">"Keerthu made me feel like an absolute queen. The makeup didn’t budge despite all the happy tears. Truly a luxury experience from start to finish."</p>
                 <span class="client-name">Priya Sharma</span>
-                <span class="client-service">Bridal Artistry</span>
+                <span class="client-service">Hindu Bridal Artistry</span>
             </div>
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
@@ -401,9 +411,9 @@
             </div>
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p class="quote">"Professional, punctual, and incredibly talented. The editorial look she created for my photoshoot was exactly what I envisioned, but better."</p>
+                <p class="quote">"Professional, punctual, and incredibly talented. The book cover look she created for my editorial shoot was exactly what I envisioned, but better."</p>
                 <span class="client-name">Meera Reddy</span>
-                <span class="client-service">Editorial Matte</span>
+                <span class="client-service">Editorial Cover</span>
             </div>
         </div>
     </section>
@@ -427,10 +437,11 @@
                         <label for="service">Service Required</label>
                         <select id="service" required>
                             <option value="">Select an Exclusive Service...</option>
-                            <option value="Bridal Artistry">Bridal Artistry</option>
-                            <option value="Pre-Wedding Styling">Pre-Wedding Styling</option>
+                            <option value="Bridal (Hindu)">Bridal (Hindu)</option>
+                            <option value="Bridal (Muslim)">Bridal (Muslim)</option>
+                            <option value="Bridal (Christian)">Bridal (Christian)</option>
                             <option value="Event Glamour">Event Glamour</option>
-                            <option value="Editorial/Photoshoot">Editorial & Fashion</option>
+                            <option value="Editorial/Photoshoot">Editorial & Book Covers</option>
                         </select>
                     </div>
                     
