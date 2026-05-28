@@ -122,10 +122,44 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; text-transf
 .client-service { font-size: 0.75rem; color: var(--gray); display: block; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
 
 /* --- Booking Form & Map --- */
+/* Styling for the new Map Link box */
+.map-container-link { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background: var(--bg-darkest); 
+    border: 1px solid rgba(184, 151, 90, 0.2); 
+    padding: 2rem; 
+    text-align: center;
+}
+
+.map-placeholder .icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+.map-placeholder h3 { color: var(--gold-metallic); margin-bottom: 1rem; }
+.map-placeholder p { color: var(--off-white-text); margin-bottom: 2rem; font-size: 0.9rem; }
+
+.btn-map-link { 
+    display: inline-block; 
+    padding: 12px 25px; 
+    background-color: var(--white); 
+    color: var(--bg-darkest); 
+    text-decoration: none; 
+    font-size: 0.8rem; 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+.btn-map-link:hover { background-color: var(--gold-metallic); color: white; }
+
+/* Ensure the grid doesn't collapse */
 .form-and-map-container { 
-    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; 
-    max-width: 1200px; margin: 0 auto; background: var(--bg-darkest); 
-    padding: 4rem; border: 1px solid rgba(184, 151, 90, 0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 2rem; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    background: var(--bg-darkest); 
+    padding: 4rem; 
+    border: 1px solid rgba(184, 151, 90, 0.1); 
 }
 
 .map-container { position: relative; border: 1px solid rgba(184, 151, 90, 0.2); filter: grayscale(50%) contrast(1.1) brightness(0.8); }
