@@ -1,220 +1,178 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keerthu Makeup | The Luxury Artistry</title>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+/* --- Premium Dark Luxury Palette & CSS Variables --- */
+:root {
+    --white: #FFFFFF;
+    --bg-darkest: #0a0a0a;
+    --bg-dark: #141414;
+    --gray: #666666;
+    --gold-metallic: #B8975A;
+    --off-white-text: #eae8e3;
+    
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --font-script: 'Alex Brush', cursive;
+    
+    --transition-smooth: all 0.4s ease-in-out;
+    --header-height: 100px;
+}
 
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo-container">
-                <span class="brand-name">
-                    <span class="brand-name-first">Keerthu</span><span class="brand-name-second">Makeup</span>
-                </span>
-                <span class="brand-sub">The Luxury Artistry</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
-                <li><a href="#book">Book Now</a></li>
-            </ul>
-        </div>
-    </nav>
+/* --- Base & Reset --- */
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body { font-family: var(--font-body); background-color: var(--bg-darkest); color: var(--off-white-text); line-height: 1.8; overflow-x: hidden; padding-top: var(--header-height); }
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; text-transform: uppercase; letter-spacing: 2px; }
 
-    <header id="home" class="hero">
-        <div class="hero-content">
-            <h2>Timeless Artistry</h2>
-            <p>Refined Beauty For Your Most Important Moments</p>
-            <a href="#book" class="btn-primary">Reserve Your Date</a>
-        </div>
-    </header>
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--gold-metallic); }
+.section-subtitle { text-align: center; font-size: 0.85rem; color: var(--white); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 4rem; font-weight: 400; }
 
-    <section id="services" class="section bg-light reveal">
-        <h2 class="section-title">Exclusive Services</h2>
-        <p class="section-subtitle">Bespoke artistry tailored for you</p>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Bridal Artistry</h3>
-                <p>Meticulously crafted, glowing, and timeless traditional or modern bridal looks.</p>
-            </div>
-            <div class="service-card">
-                <h3>Event Glamour</h3>
-                <p>Command the room with sophisticated, high-definition makeup applications for special occasions.</p>
-            </div>
-            <div class="service-card">
-                <h3>HD Airbrushing</h3>
-                <p>A premium, waterproof, and seamless porcelain-like finish perfect for all-day wear.</p>
-            </div>
-        </div>
-    </section>
+/* --- Standard Fixed Header --- */
+#navbar { 
+    position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height);
+    background-color: var(--bg-darkest); border-bottom: 1px solid rgba(184, 151, 90, 0.2);
+    display: flex; align-items: center; z-index: 1000; transition: var(--transition-smooth);
+}
+.nav-container { 
+    width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 3rem; 
+    display: flex; justify-content: space-between; align-items: center; 
+}
 
-    <section id="portfolio" class="section reveal">
-        <h2 class="section-title">The Portfolio</h2>
-        <p class="section-subtitle">A curated collection of our work</p>
-        
-        <div class="portfolio-tabs">
-            <button class="tab-btn active" data-filter="all">All Looks</button>
-            <button class="tab-btn" data-filter="bridal">Bridal</button>
-            <button class="tab-btn" data-filter="party">Event Glam</button>
-            <button class="tab-btn" data-filter="editorial">Editorial</button>
-        </div>
-        
-        <div class="portfolio-grid">
-            <div class="portfolio-item editorial">
-                <img src="https://image.ibb.co/image/bdd386.png-df6795c3-0ac3-4c74-9e25-c285f2aceac8" alt="Editorial Matte Placeholder">
-                <div class="portfolio-overlay"><span>Editorial</span></div>
-            </div>
-            <div class="portfolio-item bridal">
-                <img src="https://picsum.photos/id/64/600/800" alt="Bridal Look">
-                <div class="portfolio-overlay"><span>Bridal</span></div>
-            </div>
-            <div class="portfolio-item bridal">
-                <img src="https://picsum.photos/id/349/600/800" alt="Muhurtham Look">
-                <div class="portfolio-overlay"><span>Muhurtham</span></div>
-            </div>
-            <div class="portfolio-item party">
-                <img src="https://picsum.photos/id/445/600/800" alt="Evening Glam">
-                <div class="portfolio-overlay"><span>Event Glam</span></div>
-            </div>
-            <div class="portfolio-item party">
-                <img src="https://picsum.photos/id/453/600/800" alt="Soft Glam">
-                <div class="portfolio-overlay"><span>Event Glam</span></div>
-            </div>
-            <div class="portfolio-item bridal">
-                <img src="https://picsum.photos/id/646/600/800" alt="Reception Look">
-                <div class="portfolio-overlay"><span>Reception</span></div>
-            </div>
-        </div>
-    </section>
+.logo-container { display: flex; flex-direction: column; align-items: center; text-decoration: none; }
+.brand-name { font-family: var(--font-script); font-size: 3.5rem; line-height: 1; font-weight: 400; margin-bottom: -10px; }
+.brand-name-first { color: var(--white); }
+.brand-name-second { color: var(--gold-metallic); }
+.brand-sub { font-family: var(--font-body); font-size: 0.65rem; letter-spacing: 6px; text-transform: uppercase; color: var(--white); }
 
-    <section id="about" class="section bg-light reveal">
-        <div class="about-grid">
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=800" alt="Keerthu Makeup Artist">
-            </div>
-            <div class="about-text">
-                <h2 class="section-title" style="text-align: left;">The Artist Behind The Brush</h2>
-                <p class="section-subtitle" style="text-align: left; margin-bottom: 2rem;">Meet Keerthu</p>
-                <p>With a sophisticated approach to beauty, Keerthu specializes in creating looks that are both timeless and breathtaking. She believes that true luxury lies in the details, meticulously curating premium products and techniques to suit your unique features.</p>
-                <p>Her signature style blends high-fashion editorial perfection with the glowing, long-lasting requirements of modern glamour. The result is a flawless, elegant finish that ensures you feel as exquisite as you look.</p>
-                <div class="signature">Keerthu</div>
-            </div>
-        </div>
-    </section>
+.nav-links { list-style: none; display: flex; gap: 3rem; align-items: center; }
+.nav-links a { 
+    text-decoration: none; color: var(--off-white-text); font-weight: 400; 
+    text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; 
+    position: relative; padding-bottom: 5px; transition: var(--transition-smooth);
+}
+.nav-links a::after {
+    content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0;
+    background-color: var(--gold-metallic); transition: var(--transition-smooth);
+}
+.nav-links a:hover { color: var(--gold-metallic); }
+.nav-links a:hover::after { width: 100%; }
 
-    <section id="testimonials" class="section reveal">
-        <h2 class="section-title">Client Love</h2>
-        <p class="section-subtitle">Words from our exclusive clientele</p>
-        
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p class="quote">"Keerthu made me feel like an absolute queen. The makeup didn’t budge despite all the happy tears. Truly a luxury experience from start to finish."</p>
-                <span class="client-name">Priya Sharma</span>
-                <span class="client-service">Bridal Artistry</span>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p class="quote">"Her understanding of skin tones and high-end products gave me the most flawless finish for my reception. I received compliments all night long."</p>
-                <span class="client-name">Ananya Desai</span>
-                <span class="client-service">Event Glamour</span>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p class="quote">"Professional, punctual, and incredibly talented. The editorial look she created for my photoshoot was exactly what I envisioned, but better."</p>
-                <span class="client-name">Meera Reddy</span>
-                <span class="client-service">Editorial Matte</span>
-            </div>
-        </div>
-    </section>
+/* --- Bulletproof Scroll Animations --- */
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+/* Fail-safe: If JS breaks, CSS will force visibility after 1 second */
+@keyframes failsafeReveal { to { opacity: 1; transform: translateY(0); } }
+.reveal { animation: failsafeReveal 0.1s ease forwards 1s; } 
+.reveal.active { animation: none; opacity: 1; transform: translateY(0); }
 
-    <section id="book" class="section bg-light reveal">
-        <h2 class="section-title">Inquire Now</h2>
-        <p class="section-subtitle">Select your location and connect via WhatsApp</p>
-        
-        <div class="form-and-map-container">
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124415.42171501867!2d77.50239088686153!3d12.97457492193561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            
-            <div class="form-container">
-                <form id="booking-form">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" required placeholder="e.g. Priya Sharma">
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Event Date</label>
-                        <input type="date" id="date" required>
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="service">Service Required</label>
-                        <select id="service" required>
-                            <option value="">Select an Exclusive Service...</option>
-                            <option value="Bridal Artistry">Bridal Artistry</option>
-                            <option value="Pre-Wedding Styling">Pre-Wedding Styling</option>
-                            <option value="Event Glamour">Event Glamour</option>
-                            <option value="Editorial/Photoshoot">Editorial & Fashion</option>
-                        </select>
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="message">Event Details & Venue Location</label>
-                        <textarea id="message" rows="3" placeholder="Please provide any additional details..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-solid">Send WhatsApp Inquiry</button>
-                </form>
-            </div>
-        </div>
-    </section>
+/* --- Parallax Hero Section --- */
+.hero { 
+    height: calc(100vh - var(--header-height)); 
+    background: linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.6)), url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=1920') center/cover fixed; 
+    display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; 
+}
+.hero-content h2 { font-size: 4.5rem; color: var(--white); margin-bottom: 1rem; letter-spacing: 3px; }
+.hero-content p { font-size: 1rem; color: var(--white); margin-bottom: 2.5rem; letter-spacing: 3px; text-transform: uppercase; }
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="#home" class="logo-container" style="align-items: flex-start;">
-                    <span class="brand-name">
-                        <span class="brand-name-first">Keerthu</span><span class="brand-name-second">Makeup</span>
-                    </span>
-                    <span class="brand-sub">The Luxury Artistry</span>
-                </a>
-                <p>Bringing high-end, flawless artistry to your most cherished moments. Based in Bengaluru, Karnataka, India.</p>
-            </div>
-            
-            <div class="footer-links-col">
-                <h4 class="footer-heading">Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Our Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-contact-col">
-                <h4 class="footer-heading">Contact & Connect</h4>
-                <div class="footer-contact">
-                    <p>Bengaluru, India</p>
-                    <p>bookings@keerthumakeup.com</p>
-                    <p>+91 81471 97853</p>
-                </div>
-                <div class="social-links">
-                    <a href="#">Instagram</a>
-                    <a href="#">Facebook</a>
-                    <a href="#">Pinterest</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 Keerthu Makeup. All Rights Reserved.</p>
-        </div>
-    </footer>
+.btn-primary { 
+    display: inline-block; padding: 16px 40px; background-color: transparent; color: var(--white); 
+    text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; border: 1px solid var(--white); 
+    cursor: pointer; transition: var(--transition-smooth);
+}
+.btn-primary:hover { background-color: var(--white); color: var(--bg-darkest); }
 
-    <script src="script.js"></script>
-</body>
-</html>
+/* --- Section Layouts --- */
+.section { padding: 8rem 2rem; max-width: 1300px; margin: 0 auto; }
+.bg-light { background-color: var(--bg-dark); max-width: 100%; }
+
+/* --- Graphical Services --- */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.service-card { 
+    background: var(--bg-darkest); padding: 4rem 2.5rem; text-align: center; 
+    border: 1px solid rgba(184, 151, 90, 0.1); transition: var(--transition-smooth);
+}
+.service-card:hover { border-color: var(--gold-metallic); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.service-card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--white); letter-spacing: 1px; }
+.service-card p { font-size: 0.9rem; color: var(--off-white-text); line-height: 1.8; }
+
+/* --- Luxury Portfolio --- */
+.portfolio-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 2.5rem; margin-bottom: 4rem; }
+.tab-btn { background: none; border: none; font-family: var(--font-body); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; color: var(--off-white-text); padding-bottom: 5px; border-bottom: 1px solid transparent; transition: var(--transition-smooth); }
+.tab-btn.active, .tab-btn:hover { color: var(--white); border-bottom-color: var(--white); }
+
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+.portfolio-item { position: relative; overflow: hidden; aspect-ratio: 4/5; border: 1px solid rgba(184, 151, 90, 0.1); }
+.portfolio-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%); transition: all 0.6s ease; }
+.portfolio-overlay { position: absolute; inset: 0; background: rgba(10, 10, 10, 0.8); display: flex; align-items: center; justify-content: center; opacity: 0; transition: var(--transition-smooth); }
+.portfolio-overlay span { color: var(--gold-metallic); font-family: var(--font-heading); font-size: 1.5rem; letter-spacing: 2px; transform: translateY(15px); transition: var(--transition-smooth); }
+
+.portfolio-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
+.portfolio-item:hover .portfolio-overlay { opacity: 1; }
+.portfolio-item:hover .portfolio-overlay span { transform: translateY(0); }
+
+/* --- About Section --- */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1200px; margin: 0 auto; }
+.about-image img { width: 100%; height: 600px; object-fit: cover; filter: grayscale(20%); border: 1px solid rgba(184, 151, 90, 0.1); }
+.about-text p { font-size: 1rem; margin-bottom: 1.5rem; color: var(--off-white-text); line-height: 2; }
+.signature { font-family: var(--font-script); font-size: 3rem; color: var(--gold-metallic); margin-top: 2rem; }
+
+/* --- Testimonials --- */
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.testimonial-card { background: var(--bg-dark); padding: 3rem; border: 1px solid rgba(184, 151, 90, 0.1); position: relative; transition: var(--transition-smooth); }
+.testimonial-card:hover { transform: translateY(-5px); border-color: var(--gold-metallic); }
+.stars { color: var(--gold-metallic); margin-bottom: 1.5rem; font-size: 1.2rem; letter-spacing: 2px; }
+.quote { font-family: var(--font-heading); font-style: italic; font-size: 0.95rem; color: var(--white); margin-bottom: 2rem; line-height: 1.8; text-transform: none; letter-spacing: 0; }
+.client-name { font-weight: 600; color: var(--gold-metallic); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; display: block; }
+.client-service { font-size: 0.75rem; color: var(--gray); display: block; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* --- Booking Form & Map --- */
+.form-and-map-container { 
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; 
+    max-width: 1200px; margin: 0 auto; background: var(--bg-darkest); 
+    padding: 4rem; border: 1px solid rgba(184, 151, 90, 0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.map-container { position: relative; border: 1px solid rgba(184, 151, 90, 0.2); filter: grayscale(50%) contrast(1.1) brightness(0.8); }
+.map-container iframe { width: 100%; height: 100%; min-height: 400px; border: none; }
+
+.form-group { margin-bottom: 2rem; }
+.form-group.full-width { grid-column: 1 / -1; }
+.form-group label { display: block; margin-bottom: 0.8rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--white); }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid rgba(184, 151, 90, 0.2); background-color: var(--bg-darkest); font-family: var(--font-body); font-size: 0.95rem; color: var(--off-white-text); transition: var(--transition-smooth); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--white); }
+
+.btn-solid { 
+    background-color: var(--gold-metallic); color: var(--bg-darkest); border: none; padding: 18px 40px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; cursor: pointer; transition: var(--transition-smooth); width: 100%; margin-top: 1rem; 
+}
+.btn-solid:hover { background-color: var(--white); }
+
+/* --- Footer --- */
+footer { background-color: var(--bg-darkest); color: var(--off-white-text); padding: 6rem 2rem 2rem; border-top: 1px solid rgba(184, 151, 90, 0.1); }
+.footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; margin-bottom: 4rem; }
+
+.footer-brand .brand-name { color: var(--white); font-size: 3.5rem; margin-bottom: -10px; display: block; }
+.footer-brand p { color: var(--gray); font-size: 0.9rem; margin-top: 1.5rem; line-height: 1.8; }
+
+.footer-heading { font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--white); letter-spacing: 2px; }
+
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.8rem; }
+.footer-links a { color: var(--gray); text-decoration: none; font-size: 0.9rem; transition: var(--transition-smooth); }
+.footer-links a:hover { color: var(--gold-metallic); }
+
+.footer-contact p { color: var(--gray); font-size: 0.9rem; margin-bottom: 0.8rem; }
+
+.social-links { margin-top: 1.5rem; display: flex; gap: 1rem; }
+.social-links a { color: var(--gray); text-decoration: none; font-size: 0.85rem; transition: var(--transition-smooth); }
+.social-links a:hover { color: var(--gold-metallic); }
+
+.footer-bottom { border-top: 1px solid rgba(184, 151, 90, 0.1); padding-top: 2rem; text-align: center; color: var(--gray); font-size: 0.8rem; max-width: 1300px; margin: 0 auto; }
+
+/* --- Hamburger Menu (Mobile) --- */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { width: 30px; height: 3px; background-color: var(--white); transition: var(--transition-smooth); }
+
+@media (max-width: 900px) {
+    .hamburger { display: flex; }
+    .nav-links { display: none; }
+    .hero-content h2 { font-size: 2.8rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .form-and-map-container { grid-template-columns: 1fr; padding: 2.5rem; }
+    .footer-grid { grid-template-columns: 1fr; }
+}
