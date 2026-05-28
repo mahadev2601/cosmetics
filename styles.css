@@ -23,7 +23,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; text-transf
 .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--gold-metallic); }
 .section-subtitle { text-align: center; font-size: 0.85rem; color: var(--white); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 4rem; font-weight: 400; }
 
-/* --- Standard Fixed Header --- */
+/* --- Navigation --- */
 #navbar { 
     position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height);
     background-color: var(--bg-darkest); border-bottom: 1px solid rgba(184, 151, 90, 0.2);
@@ -33,7 +33,6 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; text-transf
     width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 3rem; 
     display: flex; justify-content: space-between; align-items: center; 
 }
-
 .logo-container { display: flex; flex-direction: column; align-items: center; text-decoration: none; }
 .brand-name { font-family: var(--font-script); font-size: 3.5rem; line-height: 1; font-weight: 400; margin-bottom: -10px; }
 .brand-name-first { color: var(--white); }
@@ -46,20 +45,17 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; text-transf
     text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; 
     position: relative; padding-bottom: 5px; transition: var(--transition-smooth);
 }
-.nav-links a::after {
-    content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0;
-    background-color: var(--gold-metallic); transition: var(--transition-smooth);
-}
+.nav-links a::after { content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0; background-color: var(--gold-metallic); transition: var(--transition-smooth); }
 .nav-links a:hover { color: var(--gold-metallic); }
 .nav-links a:hover::after { width: 100%; }
 
-/* --- Bulletproof Scroll Animations --- */
-.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all ease-out; }
-.reveal.active { opacity: 1; transform: translateY(0); }
-/* Fail-safe: If JS breaks, CSS will force visibility after 1 second */
-@keyframes failsafeReveal { to { opacity: 1; transform: translateY(0); } }
-.reveal { animation: failsafeReveal 0.1s ease forwards 1s; } 
-.reveal.active { animation: none; opacity: 1; transform: translateY(0); }
+/* Hamburger Menu (Hidden on Desktop) */
+.hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; }
+.hamburger span { width: 30px; height: 2px; background-color: var(--white); transition: var(--transition-smooth); }
+
+/* --- Scroll Animations (Fail-Safe) --- */
+.reveal { opacity: 1; transform: translateY(0); transition: 0.8s all ease-out; } 
+/* Notice opacity is 1 by default now. This prevents the blank website bug. JavaScript will handle the animation. */
 
 /* --- Parallax Hero Section --- */
 .hero { 
@@ -69,209 +65,123 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; text-transf
 }
 .hero-content h2 { font-size: 4.5rem; color: var(--white); margin-bottom: 1rem; letter-spacing: 3px; }
 .hero-content p { font-size: 1rem; color: var(--white); margin-bottom: 2.5rem; letter-spacing: 3px; text-transform: uppercase; }
-
-.btn-primary { 
-    display: inline-block; padding: 16px 40px; background-color: transparent; color: var(--white); 
-    text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; border: 1px solid var(--white); 
-    cursor: pointer; transition: var(--transition-smooth);
-}
+.btn-primary { display: inline-block; padding: 16px 40px; background-color: transparent; color: var(--white); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; border: 1px solid var(--white); cursor: pointer; transition: var(--transition-smooth); }
 .btn-primary:hover { background-color: var(--white); color: var(--bg-darkest); }
 
 /* --- Section Layouts --- */
 .section { padding: 8rem 2rem; max-width: 1300px; margin: 0 auto; }
 .bg-light { background-color: var(--bg-dark); max-width: 100%; }
 
-/* --- Graphical Services --- */
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-.service-card { 
-    background: var(--bg-darkest); padding: 4rem 2.5rem; text-align: center; 
-    border: 1px solid rgba(184, 151, 90, 0.1); transition: var(--transition-smooth);
-}
+/* --- Grids --- */
+.services-grid, .portfolio-grid, .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+/* Service Cards */
+.service-card { background: var(--bg-darkest); padding: 4rem 2.5rem; text-align: center; border: 1px solid rgba(184, 151, 90, 0.1); transition: var(--transition-smooth); }
 .service-card:hover { border-color: var(--gold-metallic); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 .service-card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--white); letter-spacing: 1px; }
 .service-card p { font-size: 0.9rem; color: var(--off-white-text); line-height: 1.8; }
 
-/* --- Luxury Portfolio --- */
+/* Portfolio */
 .portfolio-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 2.5rem; margin-bottom: 4rem; }
 .tab-btn { background: none; border: none; font-family: var(--font-body); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; color: var(--off-white-text); padding-bottom: 5px; border-bottom: 1px solid transparent; transition: var(--transition-smooth); }
 .tab-btn.active, .tab-btn:hover { color: var(--white); border-bottom-color: var(--white); }
-
-.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
 .portfolio-item { position: relative; overflow: hidden; aspect-ratio: 4/5; border: 1px solid rgba(184, 151, 90, 0.1); }
 .portfolio-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%); transition: all 0.6s ease; }
 .portfolio-overlay { position: absolute; inset: 0; background: rgba(10, 10, 10, 0.8); display: flex; align-items: center; justify-content: center; opacity: 0; transition: var(--transition-smooth); }
 .portfolio-overlay span { color: var(--gold-metallic); font-family: var(--font-heading); font-size: 1.5rem; letter-spacing: 2px; transform: translateY(15px); transition: var(--transition-smooth); }
-
 .portfolio-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
 .portfolio-item:hover .portfolio-overlay { opacity: 1; }
 .portfolio-item:hover .portfolio-overlay span { transform: translateY(0); }
 
-/* --- About Section --- */
+/* About & Testimonials */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1200px; margin: 0 auto; }
 .about-image img { width: 100%; height: 600px; object-fit: cover; filter: grayscale(20%); border: 1px solid rgba(184, 151, 90, 0.1); }
 .about-text p { font-size: 1rem; margin-bottom: 1.5rem; color: var(--off-white-text); line-height: 2; }
 .signature { font-family: var(--font-script); font-size: 3rem; color: var(--gold-metallic); margin-top: 2rem; }
-
-/* --- Testimonials --- */
-.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-.testimonial-card { background: var(--bg-dark); padding: 3rem; border: 1px solid rgba(184, 151, 90, 0.1); position: relative; transition: var(--transition-smooth); }
+.testimonial-card { background: var(--bg-dark); padding: 3rem; border: 1px solid rgba(184, 151, 90, 0.1); transition: var(--transition-smooth); }
 .testimonial-card:hover { transform: translateY(-5px); border-color: var(--gold-metallic); }
 .stars { color: var(--gold-metallic); margin-bottom: 1.5rem; font-size: 1.2rem; letter-spacing: 2px; }
 .quote { font-family: var(--font-heading); font-style: italic; font-size: 0.95rem; color: var(--white); margin-bottom: 2rem; line-height: 1.8; text-transform: none; letter-spacing: 0; }
 .client-name { font-weight: 600; color: var(--gold-metallic); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; display: block; }
 .client-service { font-size: 0.75rem; color: var(--gray); display: block; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
 
-/* --- Booking Form & Map --- */
-/* Styling for the new Map Link box */
-.map-container-link { 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    background: var(--bg-darkest); 
-    border: 1px solid rgba(184, 151, 90, 0.2); 
-    padding: 2rem; 
-    text-align: center;
-}
-
-.map-placeholder .icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
-.map-placeholder h3 { color: var(--gold-metallic); margin-bottom: 1rem; }
-.map-placeholder p { color: var(--off-white-text); margin-bottom: 2rem; font-size: 0.9rem; }
-
-.btn-map-link { 
-    display: inline-block; 
-    padding: 12px 25px; 
-    background-color: var(--white); 
-    color: var(--bg-darkest); 
-    text-decoration: none; 
-    font-size: 0.8rem; 
-    text-transform: uppercase; 
-    letter-spacing: 2px;
-    font-weight: 600;
-}
-.btn-map-link:hover { background-color: var(--gold-metallic); color: white; }
-
-/* Ensure the grid doesn't collapse */
-/* Remove the old grid layout */
-.form-container-full { 
-    max-width: 800px; 
-    margin: 0 auto; 
-    background: var(--bg-darkest); 
-    padding: 4rem; 
-    border: 1px solid rgba(184, 151, 90, 0.1); 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.form-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 2rem; 
-}
-
-/* Ensure the button looks premium */
-.btn-solid { 
-    background-color: var(--gold-metallic); 
-    color: var(--bg-darkest); 
-    border: none; 
-    padding: 18px 40px; 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    font-size: 0.8rem; 
-    cursor: pointer; 
-    transition: var(--transition-smooth); 
-    width: 100%; 
-    margin-top: 1rem; 
-}
-
-.btn-solid:hover { background-color: var(--white); }
-
-/* Ensure link is visible */
-.btn-map-link {
-    display: block;
-    margin-bottom: 1rem;
-    color: var(--gold-metallic);
-    font-size: 0.75rem;
-    text-decoration: underline;
-}
-
+/* Booking Form (Full Width version without the map container) */
+.form-container-full { max-width: 800px; margin: 0 auto; background: var(--bg-darkest); padding: 4rem; border: 1px solid rgba(184, 151, 90, 0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 .form-group { margin-bottom: 2rem; }
 .form-group.full-width { grid-column: 1 / -1; }
 .form-group label { display: block; margin-bottom: 0.8rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--white); }
 .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid rgba(184, 151, 90, 0.2); background-color: var(--bg-darkest); font-family: var(--font-body); font-size: 0.95rem; color: var(--off-white-text); transition: var(--transition-smooth); }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--white); }
-
-.btn-solid { 
-    background-color: var(--gold-metallic); color: var(--bg-darkest); border: none; padding: 18px 40px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; cursor: pointer; transition: var(--transition-smooth); width: 100%; margin-top: 1rem; 
-}
+.btn-map-link { display: block; margin-bottom: 1rem; color: var(--gold-metallic); font-size: 0.75rem; text-decoration: underline; }
+.btn-solid { background-color: var(--gold-metallic); color: var(--bg-darkest); border: none; padding: 18px 40px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; cursor: pointer; transition: var(--transition-smooth); width: 100%; margin-top: 1rem; }
 .btn-solid:hover { background-color: var(--white); }
 
-/* --- Footer --- */
+/* Footer */
 footer { background-color: var(--bg-darkest); color: var(--off-white-text); padding: 6rem 2rem 2rem; border-top: 1px solid rgba(184, 151, 90, 0.1); }
-.footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; margin-bottom: 4rem; }
-
+.footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; margin-bottom: 4rem; }
 .footer-brand .brand-name { color: var(--white); font-size: 3.5rem; margin-bottom: -10px; display: block; }
 .footer-brand p { color: var(--gray); font-size: 0.9rem; margin-top: 1.5rem; line-height: 1.8; }
-
 .footer-heading { font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--white); letter-spacing: 2px; }
-
 .footer-links { list-style: none; }
 .footer-links li { margin-bottom: 0.8rem; }
 .footer-links a { color: var(--gray); text-decoration: none; font-size: 0.9rem; transition: var(--transition-smooth); }
 .footer-links a:hover { color: var(--gold-metallic); }
-
 .footer-contact p { color: var(--gray); font-size: 0.9rem; margin-bottom: 0.8rem; }
-
 .social-links { margin-top: 1.5rem; display: flex; gap: 1rem; }
 .social-links a { color: var(--gray); text-decoration: none; font-size: 0.85rem; transition: var(--transition-smooth); }
 .social-links a:hover { color: var(--gold-metallic); }
-
 .footer-bottom { border-top: 1px solid rgba(184, 151, 90, 0.1); padding-top: 2rem; text-align: center; color: var(--gray); font-size: 0.8rem; max-width: 1300px; margin: 0 auto; }
 
-/* --- Hamburger Menu (Mobile) --- */
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-.hamburger span { width: 30px; height: 3px; background-color: var(--white); transition: var(--transition-smooth); }
 
-@media (max-width: 900px) {
-    .hamburger { display: flex; }
-    .nav-links { display: none; }
-    .hero-content h2 { font-size: 2.8rem; }
-    .about-grid { grid-template-columns: 1fr; }
-    .form-and-map-container { grid-template-columns: 1fr; padding: 2.5rem; }
-    .footer-grid { grid-template-columns: 1fr; }
-}
-/* --- RESPONSIVE ADJUSTMENTS (Paste at bottom of styles.css) --- */
+/* =========================================================
+   RESPONSIVE DESIGN (TABLET & MOBILE VIEWS)
+   ========================================================= */
 
-/* Tablet View: Columns shrink to 2 */
+/* --- TABLET VIEW (Max 1024px) --- */
 @media (max-width: 1024px) {
+    /* Reduce Grids from 3 to 2 columns */
     .services-grid, .portfolio-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
-    .hero-content h2 { font-size: 3rem; }
+    .hero-content h2 { font-size: 3.5rem; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Mobile View: Columns shrink to 1 and Navbar becomes Hamburger */
+/* --- MOBILE VIEW (Max 768px) --- */
 @media (max-width: 768px) {
-    /* Show Hamburger, Hide Links */
-    .hamburger { display: flex !important; }
+    /* 1. Navbar & Hamburger Menu */
+    .hamburger { display: flex; }
     .nav-links { 
-        display: none; 
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column; 
         position: absolute; 
-        top: 100px; 
+        top: var(--header-height); 
         left: 0; 
         width: 100%; 
-        background: #0a0a0a; 
-        flex-direction: column; 
-        align-items: center; 
-        padding: 2rem; 
-        gap: 1.5rem;
+        background-color: var(--bg-darkest); 
+        padding: 2rem 0; 
         border-bottom: 1px solid var(--gold-metallic);
     }
-    .nav-links.active { display: flex; }
+    .nav-links.active { display: flex; } /* Shown when hamburger clicked */
+    .nav-container { padding: 0 1.5rem; }
+    .brand-name { font-size: 2.8rem; }
+    
+    /* 2. Shrink Text */
+    .hero-content h2 { font-size: 2.5rem; }
+    .section-title { font-size: 2rem; }
+    .section { padding: 5rem 1.5rem; }
 
-    /* Shrink Hero and Grids */
-    .hero-content h2 { font-size: 2.2rem; }
-    .services-grid, .portfolio-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    /* 3. Reduce Grids from 2 to 1 column */
+    .services-grid, .portfolio-grid, .testimonials-grid, .about-grid, .form-grid, .footer-grid { 
+        grid-template-columns: 1fr; 
+        gap: 2rem;
+    }
+
+    /* 4. Form Adjustments */
+    .form-container-full { padding: 2rem; }
+    .form-group.full-width { grid-column: 1 / -1; }
     
-    /* Shrink Booking Form */
-    .form-and-map-container { grid-template-columns: 1fr; padding: 1.5rem; }
-    
-    /* Fix Footer */
-    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    /* 5. Center align footer */
+    .footer-grid { text-align: center; }
+    .logo-container { align-items: center !important; }
+    .social-links { justify-content: center; }
 }
