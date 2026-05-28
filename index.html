@@ -104,10 +104,9 @@
         .service-card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--white); letter-spacing: 1px; }
         .service-card p { font-size: 0.9rem; color: var(--off-white-text); line-height: 1.8; }
 
-        /* --- NEW PORTFOLIO STYLE (Matches Reference Image) --- */
+        /* --- PORTFOLIO --- */
         .portfolio-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 4rem; }
         
-        /* Pill-shaped buttons */
         .tab-btn { 
             background: transparent; border: 1px solid var(--gold-metallic); border-radius: 30px; 
             font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; 
@@ -118,30 +117,29 @@
         
         .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
         
-        /* Rounded Image Cards */
         .portfolio-item { 
             position: relative; overflow: hidden; aspect-ratio: 3/4; 
-            border-radius: 16px; /* Soft rounded corners */
+            border-radius: 16px; 
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             transition: var(--transition-smooth); 
         }
         .portfolio-item img { 
             width: 100%; height: 100%; object-fit: cover; 
-            /* Vibrant images (no grayscale) */
             transition: transform 0.6s ease; 
         }
         .portfolio-overlay { 
             position: absolute; inset: 0; background: rgba(10, 10, 10, 0.6); 
-            display: flex; align-items: center; justify-content: center; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
             opacity: 0; transition: var(--transition-smooth); 
             border-radius: 16px;
         }
-        .portfolio-overlay span { color: var(--white); font-family: var(--font-heading); font-size: 1.5rem; letter-spacing: 2px; transform: translateY(15px); transition: var(--transition-smooth); }
+        .portfolio-overlay span { color: var(--white); font-family: var(--font-heading); font-size: 1.5rem; letter-spacing: 2px; transform: translateY(15px); transition: var(--transition-smooth); margin-bottom: 5px; }
+        .portfolio-overlay p { color: var(--gold-metallic); font-family: var(--font-body); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; transform: translateY(15px); transition: var(--transition-smooth); transition-delay: 0.1s;}
         
         .portfolio-item:hover { transform: translateY(-10px); }
         .portfolio-item:hover img { transform: scale(1.08); }
         .portfolio-item:hover .portfolio-overlay { opacity: 1; }
-        .portfolio-item:hover .portfolio-overlay span { transform: translateY(0); }
+        .portfolio-item:hover .portfolio-overlay span, .portfolio-item:hover .portfolio-overlay p { transform: translateY(0); }
 
         /* --- About Section --- */
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1200px; margin: 0 auto; }
@@ -158,7 +156,7 @@
         .client-name { font-weight: 600; color: var(--gold-metallic); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; display: block; }
         .client-service { font-size: 0.75rem; color: var(--gray); display: block; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- Single Column Form Design (No Map) --- */
+        /* --- Single Column Form Design --- */
         .form-container-full { max-width: 800px; margin: 0 auto; background: var(--bg-darkest); padding: 4rem; border: 1px solid rgba(184, 151, 90, 0.1); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
         .form-group { margin-bottom: 1.5rem; }
@@ -193,14 +191,12 @@
            RESPONSIVE DESIGN (TABLET & MOBILE)
            ========================================================= */
 
-        /* --- TABLET VIEW (Max 1024px) --- */
         @media (max-width: 1024px) {
             .services-grid, .portfolio-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
             .hero-content h2 { font-size: 3.5rem; }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
-        /* --- MOBILE VIEW (Max 768px) --- */
         @media (max-width: 768px) {
             .hamburger { display: flex; }
             .nav-links { 
@@ -222,7 +218,6 @@
             .section-title { font-size: 2rem; }
             .section { padding: 5rem 1.5rem; }
 
-            /* Switch all grids to 1 Column */
             .services-grid, .portfolio-grid, .testimonials-grid, .about-grid, .form-grid, .footer-grid { 
                 grid-template-columns: 1fr; 
                 gap: 2rem;
@@ -304,28 +299,70 @@
         
         <div class="portfolio-grid">
             <div class="portfolio-item bridal">
-                <img src="https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?auto=format&fit=crop&q=80&w=600" alt="Bridal 1">
-                <div class="portfolio-overlay"><span>Bridal</span></div>
+                <img src="https://images.unsplash.com/photo-1583391733958-6752478ebf9f?auto=format&fit=crop&q=80&w=600" alt="Traditional Hindu Bridal">
+                <div class="portfolio-overlay">
+                    <span>Traditional Hindu</span>
+                    <p>Bridal</p>
+                </div>
             </div>
             <div class="portfolio-item bridal">
-                <img src="https://images.unsplash.com/photo-1583391733958-6752478ebf9f?auto=format&fit=crop&q=80&w=600" alt="Bridal 2">
-                <div class="portfolio-overlay"><span>Bridal</span></div>
+                <img src="https://images.unsplash.com/photo-1605050825077-289f61b0ab97?auto=format&fit=crop&q=80&w=600" alt="Royal Muslim Bridal">
+                <div class="portfolio-overlay">
+                    <span>Royal Nikaah</span>
+                    <p>Bridal</p>
+                </div>
             </div>
-            <div class="portfolio-item party">
-                <img src="https://images.unsplash.com/photo-1512303452027-750531d7cb7f?auto=format&fit=crop&q=80&w=600" alt="Glamour">
-                <div class="portfolio-overlay"><span>Party Glam</span></div>
+            <div class="portfolio-item bridal">
+                <img src="https://images.unsplash.com/photo-1595777116834-8dd5691079d8?auto=format&fit=crop&q=80&w=600" alt="Classic Christian Bridal">
+                <div class="portfolio-overlay">
+                    <span>Classic White</span>
+                    <p>Bridal</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item editorial">
+                <img src="https://images.unsplash.com/photo-1542452255191-c85a98f2c5d1?auto=format&fit=crop&q=80&w=600" alt="Editorial Cover 1">
+                <div class="portfolio-overlay">
+                    <span>High Fashion</span>
+                    <p>Editorial</p>
+                </div>
             </div>
             <div class="portfolio-item editorial">
-                <img src="https://images.unsplash.com/photo-1542452255191-c85a98f2c5d1?auto=format&fit=crop&q=80&w=600" alt="Editorial Matte">
-                <div class="portfolio-overlay"><span>Editorial</span></div>
+                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=600" alt="Editorial Cover 2">
+                <div class="portfolio-overlay">
+                    <span>Magazine Cover</span>
+                    <p>Editorial</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item party">
+                <img src="https://images.unsplash.com/photo-1512303452027-750531d7cb7f?auto=format&fit=crop&q=80&w=600" alt="Party Glam 1">
+                <div class="portfolio-overlay">
+                    <span>Evening Glam</span>
+                    <p>Party</p>
+                </div>
             </div>
             <div class="portfolio-item party">
-                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=600" alt="Soft Glam">
-                <div class="portfolio-overlay"><span>Soft Glam</span></div>
+                <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&q=80&w=600" alt="Party Glam 2">
+                <div class="portfolio-overlay">
+                    <span>Reception Glam</span>
+                    <p>Party</p>
+                </div>
             </div>
-            <div class="portfolio-item editorial">
-                <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&q=80&w=600" alt="High Fashion">
-                <div class="portfolio-overlay"><span>High Fashion</span></div>
+
+            <div class="portfolio-item everyday_glam">
+                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=600" alt="Everyday Glam 1">
+                <div class="portfolio-overlay">
+                    <span>Flawless Base</span>
+                    <p>Everyday Glam</p>
+                </div>
+            </div>
+            <div class="portfolio-item everyday_glam">
+                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80&w=600" alt="Everyday Glam 2">
+                <div class="portfolio-overlay">
+                    <span>Soft Beauty</span>
+                    <p>Everyday Glam</p>
+                </div>
             </div>
         </div>
     </section>
