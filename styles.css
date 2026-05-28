@@ -238,3 +238,40 @@ footer { background-color: var(--bg-darkest); color: var(--off-white-text); padd
     .form-and-map-container { grid-template-columns: 1fr; padding: 2.5rem; }
     .footer-grid { grid-template-columns: 1fr; }
 }
+/* --- RESPONSIVE ADJUSTMENTS (Paste at bottom of styles.css) --- */
+
+/* Tablet View: Columns shrink to 2 */
+@media (max-width: 1024px) {
+    .services-grid, .portfolio-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-content h2 { font-size: 3rem; }
+}
+
+/* Mobile View: Columns shrink to 1 and Navbar becomes Hamburger */
+@media (max-width: 768px) {
+    /* Show Hamburger, Hide Links */
+    .hamburger { display: flex !important; }
+    .nav-links { 
+        display: none; 
+        position: absolute; 
+        top: 100px; 
+        left: 0; 
+        width: 100%; 
+        background: #0a0a0a; 
+        flex-direction: column; 
+        align-items: center; 
+        padding: 2rem; 
+        gap: 1.5rem;
+        border-bottom: 1px solid var(--gold-metallic);
+    }
+    .nav-links.active { display: flex; }
+
+    /* Shrink Hero and Grids */
+    .hero-content h2 { font-size: 2.2rem; }
+    .services-grid, .portfolio-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    
+    /* Shrink Booking Form */
+    .form-and-map-container { grid-template-columns: 1fr; padding: 1.5rem; }
+    
+    /* Fix Footer */
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+}
