@@ -144,18 +144,9 @@
     <h2 class="section-title">Inquire Now</h2>
     <p class="section-subtitle">Choose your venue and connect via WhatsApp</p>
     
-    <div class="form-and-map-container">
-        <div class="map-container-link">
-            <div class="map-placeholder">
-                <span class="icon">📍</span>
-                <h3>Select Your Venue</h3>
-                <p>Click below to find your event location on Google Maps, then copy the address into the form.</p>
-                <a href="https://www.google.com/maps" target="_blank" class="btn-map-link">Open Google Maps</a>
-            </div>
-        </div>
-        
-        <div class="form-container">
-            <form id="booking-form">
+    <div class="form-container-full">
+        <form id="booking-form">
+            <div class="form-grid">
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" required placeholder="e.g. Priya Sharma">
@@ -175,12 +166,13 @@
                     </select>
                 </div>
                 <div class="form-group full-width">
-                    <label for="message">Event Details & Venue Location</label>
+                    <label for="venue">Event Venue Location</label>
+                    <a href="https://www.google.com/maps" target="_blank" class="btn-map-link">Open Google Maps to find location</a>
                     <textarea id="message" rows="3" placeholder="Paste your venue address here..."></textarea>
                 </div>
-                <button type="submit" class="btn-solid">Send WhatsApp Inquiry</button>
-            </form>
-        </div>
+            </div>
+            <button type="submit" class="btn-solid">Send WhatsApp Inquiry</button>
+        </form>
     </div>
     </section>
 
